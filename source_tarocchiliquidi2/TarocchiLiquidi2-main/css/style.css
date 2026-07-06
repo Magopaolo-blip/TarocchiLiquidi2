@@ -1,0 +1,894 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #ffffff;
+    --accent-color: #a82e2e; /* Rosso Ceralacca */
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --bg-light: #f9f9f9;
+    --bg-dark: #111111;
+    --border-color: #eaeaea;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    position: relative;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--bg-dark); }
+.text-light { color: #ffffff; }
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)), url('../assets/tl-social-club-salotto.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 0px; /* Square for premium feel */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+}
+
+.btn-secondary {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-small {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: #ffffff;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 18px 45px;
+}
+
+.btn-whatsapp:hover {
+    background: #128c7e;
+    transform: scale(1.05);
+}
+
+.btn-text {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* Manifesto */
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.manifesto-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.manifesto-quote blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-style: italic;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 30px;
+    color: var(--primary-color);
+}
+
+/* Experience Cards */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.card ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.card ul li {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.card ul li i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* Traccia Section */
+.traccia-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.traccia-image {
+    background: #f0f0f0;
+    height: 400px;
+    overflow: hidden;
+}
+
+.traccia-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Paolo Musetti Section */
+.chi-sono-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.chi-sono-img {
+    position: relative;
+    height: 500px;
+}
+
+.img-frame {
+    width: 100%;
+    height: 100%;
+    background: url('../assets/paolo-musetti-tarocchi-liquidi.jpg') center center / cover no-repeat;
+    border: 10px solid var(--accent-color);
+}
+
+/* Footer */
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0 15px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.policy-link {
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: none;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-delayed {
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 24px 20px;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .manifesto-grid, .traccia-content, .chi-sono-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .chi-sono-img {
+        height: 300px;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 12px;
+    }
+}
+
+
+/* === PATCH LAYOUT COMPATTO v2 === */
+.section-padding {
+    padding: 72px 0;
+}
+
+.section-header h2 {
+    margin-bottom: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 2rem;
+}
+
+.hero {
+    min-height: 72vh;
+    height: auto;
+    padding: 110px 0 70px;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+}
+
+.manifesto-grid {
+    gap: 44px;
+    margin-top: 30px;
+}
+
+.experience-grid {
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.card {
+    padding: 32px;
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.traccia-content {
+    grid-template-columns: 360px minmax(0, 560px);
+    gap: 44px;
+    justify-content: center;
+}
+
+.traccia-image {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    justify-self: end;
+    background: #f3f0eb;
+}
+
+.traccia-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.chi-sono-grid {
+    grid-template-columns: 300px minmax(0, 620px);
+    gap: 44px;
+    justify-content: center;
+}
+
+.chi-sono-img {
+    height: 340px;
+}
+
+.chi-sono-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--accent-color);
+}
+
+.img-frame {
+    display: none;
+}
+
+.footer-bottom {
+    margin-top: 56px;
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 56px 0;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 105px 0 54px;
+    }
+
+    .hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .manifesto-grid,
+    .traccia-content,
+    .chi-sono-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .traccia-image {
+        max-width: 100%;
+        height: 240px;
+        justify-self: stretch;
+    }
+
+    .chi-sono-img {
+        height: 280px;
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* === PATCH COMPATTO DEFINITIVO v3 — 06/07 ===
+   Obiettivo: foto mai a piena pagina, spazi più serrati, hero più bassa.
+*/
+:root {
+    --nav-height: 58px;
+}
+
+.container {
+    max-width: 1080px;
+}
+
+.navbar {
+    padding: 12px 0 !important;
+}
+
+.logo {
+    font-size: 1.35rem !important;
+}
+
+.nav-links {
+    gap: 24px !important;
+}
+
+.section-padding {
+    padding: 54px 0 !important;
+}
+
+.section-header {
+    margin-bottom: 26px !important;
+}
+
+.section-header h2,
+h2 {
+    font-size: clamp(2rem, 3vw, 2.65rem) !important;
+    margin-bottom: 12px !important;
+}
+
+.subtitle {
+    margin-bottom: 10px !important;
+}
+
+/* HERO */
+.hero {
+    height: auto !important;
+    min-height: 430px !important;
+    max-height: 520px !important;
+    padding: 108px 0 68px !important;
+    background-size: cover !important;
+    background-position: center 42% !important;
+}
+
+.hero-content {
+    max-width: 760px !important;
+}
+
+.hero h1 {
+    font-size: clamp(2.75rem, 4.4vw, 4.25rem) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 18px !important;
+}
+
+.hero p {
+    font-size: 1.05rem !important;
+    max-width: 620px !important;
+    margin-bottom: 28px !important;
+}
+
+.btn {
+    padding: 13px 30px !important;
+}
+
+/* METODO */
+.manifesto-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 44px !important;
+    margin-top: 24px !important;
+}
+
+.manifesto-text p {
+    font-size: 1rem !important;
+    margin-bottom: 14px !important;
+}
+
+.manifesto-quote blockquote {
+    font-size: 1.55rem !important;
+    padding-left: 24px !important;
+}
+
+/* ESPERIENZE */
+.experience-grid {
+    gap: 22px !important;
+    margin-top: 26px !important;
+}
+
+.card {
+    padding: 28px !important;
+}
+
+.card-icon {
+    font-size: 1.9rem !important;
+    margin-bottom: 14px !important;
+}
+
+.card p {
+    margin-bottom: 16px !important;
+}
+
+.card ul {
+    margin-bottom: 22px !important;
+}
+
+/* TRACCIA — immagine controllata */
+.traccia-content {
+    display: grid !important;
+    grid-template-columns: minmax(260px, 330px) minmax(360px, 520px) !important;
+    gap: 42px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.traccia-text {
+    max-width: 330px !important;
+}
+
+.traccia-text p {
+    margin-bottom: 14px !important;
+}
+
+.traccia-image {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: 330px !important;
+    justify-self: start !important;
+    overflow: hidden !important;
+    background: #f3f0eb !important;
+}
+
+.traccia-image img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 520px !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+/* PAOLO — foto controllata */
+.chi-sono-grid {
+    display: grid !important;
+    grid-template-columns: minmax(320px, 520px) minmax(320px, 430px) !important;
+    gap: 46px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.chi-sono-img {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: 330px !important;
+    overflow: hidden !important;
+    justify-self: end !important;
+}
+
+.chi-sono-img img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 520px !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border: 0 !important;
+}
+
+.chi-sono-info {
+    max-width: 430px !important;
+}
+
+.chi-sono-info p {
+    margin-bottom: 14px !important;
+}
+
+/* FOOTER */
+.footer {
+    padding-top: 58px !important;
+    padding-bottom: 46px !important;
+}
+
+.footer-bottom {
+    margin-top: 48px !important;
+    padding-top: 30px !important;
+}
+
+.mb-4 { margin-bottom: 1rem !important; }
+.mb-5 { margin-bottom: 2rem !important; }
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 100%;
+        padding: 0 22px;
+    }
+
+    .traccia-content,
+    .chi-sono-grid,
+    .manifesto-grid {
+        grid-template-columns: 1fr !important;
+        gap: 26px !important;
+    }
+
+    .traccia-text,
+    .chi-sono-info {
+        max-width: 100% !important;
+    }
+
+    .traccia-image,
+    .chi-sono-img {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 260px !important;
+        justify-self: stretch !important;
+    }
+
+    .chi-sono-img img {
+        object-position: center 34% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 44px 0 !important;
+    }
+
+    .hero {
+        min-height: 390px !important;
+        max-height: none !important;
+        padding: 92px 0 48px !important;
+        background-position: center center !important;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem !important;
+    }
+
+    .hero p {
+        font-size: 0.98rem !important;
+        margin-bottom: 22px !important;
+    }
+
+    .hero-btns {
+        display: grid;
+        gap: 10px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .btn-secondary {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .traccia-image,
+    .chi-sono-img {
+        height: 230px !important;
+    }
+}
+
+
+/* === PATCH HERO COMPATTA v4 — 06/07 ===
+   Obiettivo: header molto più basso e foto hero meno dominante.
+*/
+.navbar {
+    padding: 10px 0 !important;
+}
+
+.hero {
+    min-height: 315px !important;
+    max-height: 360px !important;
+    padding: 74px 0 34px !important;
+    align-items: center !important;
+    background-size: cover !important;
+    background-position: center 48% !important;
+}
+
+.hero-content {
+    max-width: 680px !important;
+}
+
+.hero h1 {
+    font-size: clamp(2.25rem, 3.45vw, 3.35rem) !important;
+    line-height: 1.06 !important;
+    margin-bottom: 12px !important;
+}
+
+.hero p {
+    font-size: 0.96rem !important;
+    line-height: 1.55 !important;
+    max-width: 570px !important;
+    margin-bottom: 20px !important;
+}
+
+.btn {
+    padding: 10px 24px !important;
+}
+
+.hero + .section-padding {
+    padding-top: 44px !important;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 300px !important;
+        max-height: none !important;
+        padding: 72px 0 32px !important;
+        background-position: center center !important;
+    }
+
+    .hero h1 {
+        font-size: 2rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero p {
+        font-size: 0.92rem !important;
+        margin-bottom: 18px !important;
+    }
+
+    .hero + .section-padding {
+        padding-top: 38px !important;
+    }
+}
