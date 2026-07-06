@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parole Liquide — Le parole della tua vita</title>
+  <meta name="description" content="Parole Liquide è un'esperienza elegante, personale e memorabile per wedding, private party e corporate.">
+  <style>
+    :root{
+      --bg:#080705;
+      --bg-soft:#100d09;
+      --paper:#f4ead9;
+      --muted:#cbb99b;
+      --muted2:#9d8e75;
+      --gold:#d9b96f;
+      --gold-soft:#b98937;
+      --line:rgba(217,185,111,.22);
+      --card:rgba(255,255,255,.035);
+      --shadow:0 24px 80px rgba(0,0,0,.38);
+      --serif:Georgia,"Times New Roman",serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 50% -12%, rgba(217,185,111,.10), transparent 34%),
+        linear-gradient(180deg,#0a0806 0%,#050403 100%);
+      color:var(--paper);
+      font-family:var(--serif);
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+    header{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:20;
+      padding:24px 0 48px;
+      background:linear-gradient(180deg,rgba(8,7,5,.94),rgba(8,7,5,.58),transparent);
+    }
+    .nav{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:20px;
+      line-height:1.06;
+      text-shadow:0 1px 18px rgba(0,0,0,.5);
+    }
+    .brand small{
+      display:block;
+      font-size:10px;
+      color:var(--paper);
+      opacity:.82;
+      letter-spacing:.17em;
+      margin-top:8px;
+    }
+    .navlinks{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(244,234,217,.84);
+    }
+    .navlinks a{
+      padding:12px 0;
+      transition:color .22s ease, opacity .22s ease;
+    }
+    .navlinks a:hover{color:var(--gold)}
+    .navlinks .outline{
+      border:1px solid var(--line);
+      padding:14px 22px;
+      color:var(--gold);
+      background:rgba(7,6,5,.28);
+      backdrop-filter:blur(4px);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 22px;
+      border:1px solid var(--line);
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      background:rgba(7,6,5,.40);
+      transition:transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 36px rgba(0,0,0,.28);
+      border-color:rgba(217,185,111,.48);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,#e1c77d,#b18436);
+      color:#100d08;
+      border-color:transparent;
+      font-weight:700;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(8,7,5,.90) 0%,rgba(8,7,5,.76) 24%,rgba(8,7,5,.42) 48%,rgba(8,7,5,.10) 78%,rgba(8,7,5,.04) 100%),
+        url('hero-postazione.png') center center / cover no-repeat;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:32vh;
+      background:linear-gradient(180deg,transparent,rgba(8,7,5,.86));
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:absolute;
+      left:clamp(30px,7vw,124px);
+      top:54%;
+      transform:translateY(-50%);
+      z-index:2;
+      width:min(430px,calc(100vw - 60px));
+      animation:fadeUp .7s ease-out both;
+    }
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(-46%) translateX(-10px)}
+      to{opacity:1;transform:translateY(-50%) translateX(0)}
+    }
+    .eyebrow{
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(42px,4.75vw,72px);
+      line-height:.99;
+      font-weight:400;
+      letter-spacing:.01em;
+      text-shadow:0 2px 34px rgba(0,0,0,.56);
+    }
+    .lead{
+      margin:28px 0 0;
+      font-size:19px;
+      line-height:1.58;
+      color:var(--muted);
+      max-width:390px;
+      text-shadow:0 2px 20px rgba(0,0,0,.55);
+    }
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:34px;
+    }
+
+    section{
+      padding:86px 0;
+      border-top:1px solid var(--line);
+      background:
+        radial-gradient(circle at 18% 0%,rgba(217,185,111,.10),transparent 34%),
+        linear-gradient(180deg,#0a0806 0%,var(--bg) 100%);
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:64px;
+      align-items:center;
+    }
+    h2{
+      margin:0;
+      font-size:clamp(34px,4.2vw,56px);
+      line-height:1.08;
+      font-weight:400;
+      letter-spacing:.005em;
+    }
+    .copy{
+      font-size:21px;
+      line-height:1.65;
+      color:var(--muted);
+    }
+    .copy p:first-child{margin-top:0}
+    .visual{
+      border:1px solid var(--line);
+      background:var(--card);
+      padding:12px;
+      box-shadow:var(--shadow);
+    }
+    .visual img{
+      width:100%;
+      height:auto;
+      filter:brightness(1.12) contrast(1.03) saturate(1.04);
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:38px;
+    }
+    .step{
+      border-top:1px solid var(--line);
+      padding-top:18px;
+    }
+    .step b{
+      display:block;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:400;
+      margin-bottom:12px;
+    }
+    .step span{
+      display:block;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.5;
+    }
+
+    .contact{
+      background:
+        radial-gradient(circle at 70% 20%,rgba(217,185,111,.11),transparent 34%),
+        linear-gradient(180deg,var(--bg-soft),#070605);
+    }
+    form{display:grid;gap:14px}
+    input,textarea,select{
+      width:100%;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      color:var(--paper);
+      padding:15px 14px;
+      font:16px var(--serif);
+      outline:none;
+      border-radius:0;
+    }
+    input:focus,textarea:focus,select:focus{
+      border-color:rgba(217,185,111,.58);
+      box-shadow:0 0 0 3px rgba(217,185,111,.08);
+    }
+    textarea{min-height:130px;resize:vertical}
+    input::placeholder,textarea::placeholder{color:var(--muted2)}
+    select option{
+      background:#fffdf8;
+      color:#120f0a;
+    }
+    .fine{
+      font-size:12px;
+      line-height:1.5;
+      color:var(--muted2);
+    }
+
+    footer{
+      padding:30px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      font-size:14px;
+      background:#050403;
+    }
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:980px){
+      header{position:static;padding:16px 0;background:#080705;border-bottom:1px solid var(--line)}
+      .navlinks{display:none}
+      .hero{
+        min-height:760px;
+        background:
+          linear-gradient(90deg,rgba(8,7,5,.76),rgba(8,7,5,.50) 42%,rgba(8,7,5,.14)),
+          url('hero-postazione.png') 64% center / cover no-repeat;
+      }
+      .hero-inner{
+        left:24px;
+        top:55%;
+        width:min(440px,calc(100vw - 48px));
+      }
+      .grid-2{grid-template-columns:1fr;gap:34px}
+      section{padding:60px 0}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:560px){
+      .wrap{padding:0 20px}
+      header{padding:14px 0 15px}
+      .brand{font-size:17px;letter-spacing:.22em}
+      .brand small{font-size:9px;margin-top:7px;letter-spacing:.15em}
+      .hero{
+        min-height:0;
+        background:
+          linear-gradient(180deg,rgba(8,7,5,.04) 0%,rgba(8,7,5,.16) 33%,rgba(8,7,5,.72) 58%,rgba(8,7,5,.96) 100%),
+          url('hero-postazione.png') 69% top / auto 52% no-repeat;
+      }
+      .hero:after{height:18vh;background:linear-gradient(180deg,transparent,rgba(8,7,5,.78))}
+      .hero-inner{
+        position:relative;
+        left:auto;
+        top:auto;
+        transform:none;
+        padding:300px 20px 42px;
+        width:100%;
+        animation:none;
+      }
+      .eyebrow{font-size:11px;letter-spacing:.22em;margin-bottom:12px}
+      h1{font-size:38px;line-height:.96}
+      h2{font-size:38px;line-height:1.03}
+      .lead{font-size:16.5px;line-height:1.5;margin-top:20px;max-width:330px}
+      .cta{gap:10px;margin-top:24px;align-items:flex-start}
+      .btn{width:auto;min-height:44px;padding:0 18px;font-size:11px;letter-spacing:.13em}
+      section{padding:48px 0}
+      .grid-2{gap:26px}
+      .copy{font-size:17px;line-height:1.56}
+      .copy p{margin:18px 0}
+      .visual{padding:8px;box-shadow:0 14px 44px rgba(0,0,0,.32)}
+      .steps{grid-template-columns:1fr;margin-top:24px}
+      .step{padding:22px 0 0}
+      .step b{margin-bottom:9px;font-size:11px}
+      .step span{font-size:16.5px;line-height:1.44}
+      #boccetta .grid-2 > .visual{order:2}
+      #boccetta .grid-2 > div:not(.visual){order:1}
+      #boccetta .visual img{max-height:430px;object-fit:cover;object-position:center}
+      .contact{padding-top:52px;padding-bottom:46px}
+      form{gap:12px}
+      input,textarea,select{padding:13px 13px;font-size:15.5px;min-height:52px}
+      textarea{min-height:116px}
+      .fine{font-size:11.5px}
+      footer{padding:22px 0;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">Parole<br>Liquide<small>Le parole della tua vita</small></a>
+    <nav class="navlinks">
+      <a href="#esperienza">Esperienza</a>
+      <a href="#boccetta">La Traccia</a>
+      <a href="#contatti" class="outline">Richiedi informazioni</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Wedding · Private Party · Corporate</div>
+      <h1>Le parole<br>che parlano<br>di te.</h1>
+      <div class="lead">
+        Un'esperienza elegante, personale e memorabile.
+        <br><br>
+        Ci sono parole che leggiamo.<br>E parole che ci leggono.
+      </div>
+      <div class="cta">
+        <a href="#contatti" class="btn primary">Richiedi informazioni</a>
+        <a href="#esperienza" class="btn">Scopri l'esperienza</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="esperienza">
+    <div class="wrap grid-2">
+      <div>
+        <div class="eyebrow">L'esperienza</div>
+        <h2>Parole Liquide è un'esperienza da vivere.</h2>
+        <div class="copy">
+          <p>Il consultante incontra alcune parole, le tiene tra le mani e osserva la propria risposta corporea.</p>
+          <p>Alla fine ogni persona porta con sé la propria Traccia: tre parole, una boccetta e la sua Traccia stampata.</p>
+        </div>
+      </div>
+      <div class="visual">
+        <img src="mano-squegg.png" alt="Mano femminile che stringe lo Squegg durante l'esperienza Parole Liquide">
+      </div>
+    </div>
+
+    <div class="wrap steps">
+      <div class="step"><b>01. Accoglienza</b><span>Una postazione elegante e un invito discreto a fermarsi.</span></div>
+      <div class="step"><b>02. Parole</b><span>Parole sensibili e parole-risorsa vengono testate una alla volta.</span></div>
+      <div class="step"><b>03. Traccia</b><span>Emergono le tre parole da portare con sé.</span></div>
+      <div class="step"><b>04. Ricordo</b><span>La boccetta finale diventa un oggetto personale dell'esperienza.</span></div>
+    </div>
+  </section>
+
+  <section id="boccetta">
+    <div class="wrap grid-2">
+      <div class="visual">
+        <img src="boccetta-fiducia.png" alt="Boccetta Parole Liquide sigillata con ceralacca ed etichetta FIDUCIA">
+      </div>
+      <div>
+        <div class="eyebrow">La Traccia</div>
+        <h2>Una piccola boccetta.<br>Una parola che resta.</h2>
+        <div class="copy">
+          <p>Al termine dell'esperienza, il consultante riceve una boccetta sigillata: un piccolo oggetto da custodire, ricordare, fotografare.</p>
+          <p>Non è un gadget. È la forma finale della Traccia emersa durante l'incontro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contatti">
+    <div class="wrap grid-2">
+      <div>
+        <div class="eyebrow">Contatti</div>
+        <h2>Richiedi informazioni.</h2>
+        <div class="copy">
+          <p>Scrivi per disponibilità, formule evento e collaborazioni con agenzie.</p>
+          <p>Paolo Musetti<br>paroleliquide.it</p>
+        </div>
+      </div>
+      <form action="https://formsubmit.co/magopaolo@libero.it" method="POST">
+        <input type="hidden" name="_subject" value="Nuova richiesta da paroleliquide.it">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="nome" placeholder="Nome e cognome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telefono" placeholder="Telefono / WhatsApp">
+        <select name="tipo_evento">
+          <option value="">Tipo di evento</option>
+          <option>Wedding</option>
+          <option>Private Party</option>
+          <option>Luxury Party</option>
+          <option>Corporate</option>
+          <option>Agenzia eventi</option>
+          <option>Altro</option>
+        </select>
+        <textarea name="messaggio" placeholder="Raccontami data, luogo e tipo di evento"></textarea>
+        <button type="submit" class="btn primary">Invia richiesta</button>
+        <div class="fine">Il form usa un servizio esterno compatibile con siti statici. Alla prima richiesta potrebbe essere necessaria una conferma via email.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© Parole Liquide — Paolo Musetti</div>
+    <div>WhatsApp: +39 328 292 4284</div>
+  </div>
+</footer>
+</body>
+</html>
