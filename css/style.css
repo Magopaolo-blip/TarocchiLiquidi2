@@ -136,7 +136,7 @@ h2 {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://www.tarocchiliquidi.it/assets/tl-social-club-salotto.jpg'); /* Background fallback */
+    background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)), url('../assets/tl-social-club-salotto.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -304,21 +304,15 @@ h2 {
 .traccia-image {
     background: #f0f0f0;
     height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
-.bottle-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #ccc;
-}
-
-.bottle-placeholder i {
-    font-size: 5rem;
-    margin-bottom: 10px;
+.traccia-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Paolo Musetti Section */
@@ -331,12 +325,13 @@ h2 {
 
 .chi-sono-img {
     position: relative;
+    height: 500px;
 }
 
 .img-frame {
     width: 100%;
-    height: 500px;
-    background: #333; /* Fallback */
+    height: 100%;
+    background: url('../assets/paolo-musetti-tarocchi-liquidi.jpg') center center / cover no-repeat;
     border: 10px solid var(--accent-color);
 }
 
@@ -369,6 +364,17 @@ h2 {
 }
 
 /* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .fade-in {
     animation: fadeIn 1s ease forwards;
 }
@@ -387,6 +393,20 @@ h2 {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 24px 20px;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
     
     .menu-toggle {
@@ -404,5 +424,10 @@ h2 {
 
     .chi-sono-img {
         height: 300px;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 12px;
     }
 }
